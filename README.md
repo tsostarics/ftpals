@@ -5,9 +5,12 @@
 
 This package provides color palettes based on Sony’s [THE FIRST
 TAKE](https://www.youtube.com/channel/UC9zY_E8mcAo_Oq772LEZq8Q) video
-series. This package is not affiliated with Sony whatsoever.
+series. **This package is not affiliated with Sony whatsoever.**
 
-ftpalsというパッケージのことはソニーやTHE FIRST TAKEに付属していません。
+**ftpalsというパッケージのことはソニーやTHE FIRST
+TAKEに提携していません。**
+
+## Goals
 
 I made this as a side project to learn more about working with colors in
 R. Specifically I wanted to do the following:
@@ -17,8 +20,13 @@ R. Specifically I wanted to do the following:
 -   Try to use clustering as a means to make color palettes
 -   Try to make those color palettes color blind friendly procedurally
 
-The first goal was accomplished via kmeans clustering, the second was
-done by replicating the genetic algortihm implementation in this paper:
+There are packages that provide functionality to create color palettes
+from images already, such as
+[colorfindr](https://github.com/zumbov2/colorfindr) and
+[paletter](https://github.com/AndreaCirilloAC/paletter) but I wanted to
+try something new myself.
+
+I reimplimented the genetic algortihm implementation in this paper:
 
 [Troiano, Luigi & Birtolo, Cosimo & Miranda, Maria. (2008). Adapting
 palettes to color vision deficiencies by genetic algorithm. GECCO’08:
@@ -42,15 +50,17 @@ and the characteristic bar the studio overlays onto each image. That
 said, only videos from THE FIRST TAKE or THE HOME TAKE series were used,
 not THE FIRST TAKE FES.
 
+## Documentation
+
 The source files used for scraping the video metadata are available in
 the `R/` folder and prepended with `scrape_`. The files used to
-implement the genetic algorithm as prepended with `GA_`. Note that these
-aren’t exported by the package though, but they’re available to look at
-or fork. I do provide the `create_palette()` function that will generate
-a new palette for a given YouTube video ID (the part that comes after
-`watch?v=` in the URL). This function isn’t limited to THE FIRST TAKE
-videos, it should work for any YouTube video. This package only needs
-RCurl to download data, it doesn’t use rvest or the YouTube API.
+implement the genetic algorithm are prepended with `GA_`. Note that
+these aren’t exported by the package though, but they’re available to
+look at or fork. I do provide the `create_palette()` function that will
+generate a new palette for a given YouTube video ID (the part that comes
+after `watch?v=` in the URL). This function isn’t limited to THE FIRST
+TAKE videos, it should work for any YouTube video. This package only
+needs RCurl to download data, it doesn’t use rvest or the YouTube API.
 
 I won’t strongly commit to the actual effectiveness of every palette,
 but I think some turned out nice!
@@ -63,10 +73,18 @@ You can install the released version of `ftpals` from github with:
 devtools::install_github("tsostarics/ftpals")
 ```
 
-## Palette Examples
+# Palette Examples
+
+All palettes are provided by the `ftpals::first_takes` table. This
+provides additional metadata such as `videoId`, `artist` name, and
+`song` title. Note that some artist/song names are given in Japanese
+while some are given in Romaji, this is just how the data got scraped.
+It seems like if an English translation is provided for a video, then
+download requests from the United States will pull the translation
+instead of the original Japanese.
 
 `show_pals(i)` will show the two palettes available for a given index in
-the `ftpals::first_takes` table. The original sampling of colors,
+the `first_takes` table. The original sampling of colors,
 `first_takes$palette`, is shown on top, and the “optimized” palette,
 `first_takes$optimized_palette`, is shown on the bottom for comparison.
 The “optimized” palette should be a little better for those with
@@ -89,13 +107,13 @@ palettes with their hex codes.
 ``` r
 library(ftpals)
 library(ggplot2)
-plot_ftpalette(30, show_thumbnail = T, use_theme = ggplot2::theme_minimal)
+plot_ftpalette(91, show_thumbnail = T, use_theme = ggplot2::theme_minimal)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-show_pals(30) # ないものねだり by KANA-BOON X ネクライトーキー
+show_pals(91) # 病身を噛む by ずっと真夜中でいいのに
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
