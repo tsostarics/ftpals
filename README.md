@@ -99,7 +99,7 @@ implementation the optimized palette tends to have these qualities:
     palette
 
 Here is an example from [this
-video.](https://www.youtube.com/watch?v=_ZyD4n5zqxA) You can use the
+video.](https://www.youtube.com/watch?v=Wdll9P9icJU) You can use the
 `plot_ftpalette()` function to plot the palettes with the thumbnail the
 colors were sampled from. Or, you can use `show_pals` to see the two
 palettes with their hex codes.
