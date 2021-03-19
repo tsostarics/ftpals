@@ -11,7 +11,9 @@
     dplyr::mutate(take_number = dplyr::case_when(is.na(take_number) & grepl("Rude", artist) ~ 2,
                                                  is.na(take_number) & grepl("shu", artist) ~ 3,
                                                  TRUE ~ take_number),
-                  type = ifelse(type == "THE F1RST TAKE", "THE FIRST TAKE", type)) %>%
+                  type = ifelse(type == "THE F1RST TAKE", "THE FIRST TAKE", type),
+                  artist = dplyr::case_when(videoId == "niuehQgJIbY" ~ "Jun. K",
+                                            TRUE ~ artist)) %>%
     dplyr::arrange(type, take_number) %>%
     dplyr::filter(!duplicated(videoId))
 }

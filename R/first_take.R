@@ -14,5 +14,6 @@ first_take <- function(index = sample(seq_len(nrow(takes)), 1), takes=ftpals::fi
                  " by ",
                  takes[['artist']][[index]],
                  ". Enjoy the music!"))
+  show_pals(index)
   utils::browseURL(paste0("https://www.youtube.com/watch?v=", takes[["videoId"]][[index]]))
 }

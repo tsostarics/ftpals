@@ -14,7 +14,7 @@
                 lapply(video_ids,
                        function(x){
                          print(x)
-                         create_palette(x)
+                         create_palette(x,monitor = F,parallel = 6)
                        }
                 )
               )
