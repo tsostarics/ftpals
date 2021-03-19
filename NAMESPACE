@@ -2,6 +2,7 @@
 
 export("%>%")
 export(create_palette)
+export(first_take)
 export(plot_ftpalette)
 export(show_pals)
 importFrom(magrittr,"%>%")
