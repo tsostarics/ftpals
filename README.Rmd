@@ -21,6 +21,19 @@ This package provides color palettes based on Sony's
 
 **ftpalsというパッケージのことはソニーやTHE FIRST TAKEに提携していません。**
 
+Current counts:
+```{r counts, echo = FALSE, message=FALSE, warning=FALSE}
+library(ftpals)
+library(dplyr)
+library(knitr)
+first_takes %>% 
+  dplyr::group_by(type) %>% 
+  dplyr::summarize(n = dplyr::n()) %>% 
+  knitr::kable()
+```
+
+
+
 ## Goals
 
 I made this as a side project to learn more about working with colors in R.

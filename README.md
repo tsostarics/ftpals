@@ -10,6 +10,13 @@ series. **This package is not affiliated with Sony whatsoever.**
 **ftpalsというパッケージのことはソニーやTHE FIRST
 TAKEに提携していません。**
 
+Current counts:
+
+| type           |   n |
+|:---------------|----:|
+| THE FIRST TAKE | 101 |
+| THE HOME TAKE  |  16 |
+
 ## Goals
 
 I made this as a side project to learn more about working with colors in
