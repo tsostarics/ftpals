@@ -1,0 +1,21 @@
+#' Palettes from First Take video thumbnails
+#'
+#' A dataset containing palettes generated from THE FIRST TAKE video thumbnails.
+#'
+#'
+#' @format A tibble with 8 variables:
+#' \describe{
+#'   \item{videoId}{character, video ID code for the youtube video}
+#'   \item{artist}{character, artist of the song (either Japanese or English)}
+#'   \item{song}{character, song title for the video}
+#'   \item{type}{character, whether the video was part of THE FIRST TAKE or THE HOME TAKE serioes}
+#'   \item{take_number}{double, the number of the video, as part of its respective series}
+#'   \item{palette}{list of characters, hex strings for 6 colors created from kmeans clustering of the thumbnail}
+#'   \item{bar_color}{character, hex string for the color of the bar used in the thumbnail. Retrieved from the midpoint of the image}
+#'   \item{optimized_palette}{list of characters, palette that should be more color blind friendly, created via genetic algorithm}
+#'   ...
+#' }
+#' @source \url{https://www.youtube.com/channel/UC9zY_E8mcAo_Oq772LEZq8Q/featured}
+#' @source \url{https://www.thefirsttake.jp/}
+#' @source Troiano, Luigi & Birtolo, Cosimo & Miranda, Maria. (2008). Adapting palettes to color vision deficiencies by genetic algorithm. GECCO'08: Proceedings of the 10th Annual Conference on Genetic and Evolutionary Computation 2008.
+"first_takes"
