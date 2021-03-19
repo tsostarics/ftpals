@@ -27,3 +27,5 @@ Suggests:
     RCurl,
     purrr,
     data.table
+URL: https://github.com/tsostarics/ftpals
+BugReports: https://github.com/tsostarics/ftpals/issues
