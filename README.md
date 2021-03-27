@@ -145,6 +145,12 @@ show_pals(23) # BL by QUEEN-BEE
 
 <img src="man/figures/README-other examples-3.png" width="100%" />
 
+``` r
+show_pals(take = 86) # オーケストラ by AiNA THE END
+```
+
+<img src="man/figures/README-other examples-4.png" width="100%" />
+
 Here’s an example with a plot. You can pick the palette you want by
 directly indexing the palette or optimized palette you want. Notice
 there’s also a `bar_color` column you can access for an additional
@@ -166,9 +172,61 @@ diamonds %>%
 
 <img src="man/figures/README-plot example-1.png" width="100%" />
 
-One benefit to using this method is that you can reorder the colors by
-directly indexing the order like
-`first_takes$palette[[23]][c(2,1,3:6)]`.
+## Scale\_ functions
 
-Eventually I’ll add a suite of `scale_fill` and `scale_color` functions
-for discrete and continuous data.
+You can use `scale_fill_ftake()` and `scale_color_ftake()` to set
+colors, too. They take either an `index`, or a `type` character denoting
+which series of videos to use and a `take` for which specific video to
+use. If you want to use palettes from THE HOME TAKE, you should opt for
+the type/take method. If you want to use videos from THE FIRST TAKE,
+index works fine but there is no video number 70 (either it was
+accidentally skipped or later taken down), so the index-take number
+correspondence is off by one after 69.
+
+``` r
+diamonds %>% 
+  ggplot(aes(x = cut, y = carat, fill = cut)) +
+  stat_summary(fun = 'mean',
+               geom = 'bar',
+               color = 'black') +
+  scale_fill_ftake(index = 24) +
+  geom_hline(yintercept = .75,
+             size = 2, 
+             linetype = "dashed", 
+             color = barcolor(24)) +
+  theme_minimal()
+```
+
+<img src="man/figures/README-plot example functions-1.png" width="100%" />
+
+``` r
+diamonds %>% 
+  ggplot(aes(x = cut, y = carat, fill = cut)) +
+  stat_summary(fun = 'mean',
+               geom = 'bar',
+               color = 'black') +
+  scale_fill_ftake(index = 24, order = 6:1) +
+  geom_hline(yintercept = .75,
+             size = 2, 
+             linetype = "dashed", 
+             color = barcolor(24)) +
+  theme_minimal()
+```
+
+<img src="man/figures/README-plot example functions-2.png" width="100%" />
+
+``` r
+diamonds %>% 
+  ggplot(aes(x = cut, y = carat, fill = cut)) +
+  stat_summary(fun = 'mean',
+               geom = 'bar',
+               color = 'black') +
+  scale_fill_ftake(palette = 2, type = "H", take = 10) +
+  geom_hline(yintercept = .75,
+             size = 2, 
+             linetype = "dashed", 
+             color = barcolor(type = "H", take = 10)) +
+  theme_minimal()
+```
+
+<img src="man/figures/README-plot example functions-3.png" width="100%" />

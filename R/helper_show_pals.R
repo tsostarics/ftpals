@@ -7,9 +7,9 @@
 #'
 #' @importFrom scales show_col
 #' @export
-show_pals <- function(index, palettes = ftpals::first_takes) {
-  primary <- palettes[["palette"]][index][[1]]
-  optimized <- palettes[["optimized_palette"]][index][[1]]
+show_pals <- function(index = NA, type = "F", take = NA, palettes = ftpals::first_takes) {
+  primary <- get_ftpal(index = index, palette = 1L, type = type, take = take)
+  optimized <- get_ftpal(index = index, palette = 2L, type = type, take = take)
   n = length(primary) %/% 2
   scales::show_col(c(primary,rep(NA, n),optimized), ncol = n)
 }
