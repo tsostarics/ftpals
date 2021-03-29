@@ -4,6 +4,8 @@
 #'
 #' @param index Which palette to get?
 #' @param palettes Palette table
+#' @param type "F" for first take, "H" for home take
+#' @param take Take #
 #'
 #' @importFrom scales show_col
 #' @export

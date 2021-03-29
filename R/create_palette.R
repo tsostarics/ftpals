@@ -12,7 +12,6 @@
 #'
 #' @return A color palette, in hex strings
 #' @importFrom stats kmeans
-#' @export
 create_palette <- function(video_id, n=6, maxiter = 45, monitor = plot, parallel = F){
   # Download file and convert to an RGB data frame
   requireNamespace("jpeg", quietly = TRUE)

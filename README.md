@@ -5,16 +5,17 @@
 
 This package provides color palettes based on Sony’s [THE FIRST
 TAKE](https://www.youtube.com/channel/UC9zY_E8mcAo_Oq772LEZq8Q) video
-series. **This package is not affiliated with Sony whatsoever.**
+series. **This package is not affiliated with Sony Music Entertainment
+Japan whatsoever.**
 
-**ftpalsというパッケージのことはソニーやTHE FIRST
+**ftpalsというパッケージのことはSMEやTHE FIRST
 TAKEに提携していません。**
 
 Current counts:
 
 | type           |   n |
 |:---------------|----:|
-| THE FIRST TAKE | 101 |
+| THE FIRST TAKE | 103 |
 | THE HOME TAKE  |  16 |
 
 ## Goals
@@ -33,7 +34,7 @@ from images already, such as
 [paletter](https://github.com/AndreaCirilloAC/paletter) but I wanted to
 try something new myself.
 
-I reimplimented the genetic algortihm implementation in this paper:
+I reimplemented the genetic algortihm implementation in this paper:
 
 [Troiano, Luigi & Birtolo, Cosimo & Miranda, Maria. (2008). Adapting
 palettes to color vision deficiencies by genetic algorithm. GECCO’08:
@@ -60,14 +61,10 @@ not THE FIRST TAKE FES.
 ## Documentation
 
 The source files used for scraping the video metadata are available in
-the `R/` folder and prepended with `scrape_`. The files used to
-implement the genetic algorithm are prepended with `GA_`. Note that
-these aren’t exported by the package though, but they’re available to
-look at or fork. I do provide the `create_palette()` function that will
-generate a new palette for a given YouTube video ID (the part that comes
-after `watch?v=` in the URL). This function isn’t limited to THE FIRST
-TAKE videos, it should work for any YouTube video. This package only
-needs RCurl to download data, it doesn’t use rvest or the YouTube API.
+the `R/scrape_utils` directory and prepended with `scrape_`. The files
+used to implement the genetic algorithm are similarly in `R/GA_utils`
+and prepended with `GA_`. Note that these aren’t exported by the
+package, but they’re available to look at.
 
 I won’t strongly commit to the actual effectiveness of every palette,
 but I think some turned out nice!
@@ -100,8 +97,8 @@ implementation the optimized palette tends to have these qualities:
 
 -   The first color is less white than the original sample
 -   The second color is less black than the original sample
--   The palette is **reordered by luminance**, so the hue ordering
-    sometimes changes
+-   The palette is **reordered by alternating luminance**, so the hue
+    ordering sometimes changes
 -   The palette is often somewhat less saturated than the original
     palette
 

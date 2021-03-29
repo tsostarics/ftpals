@@ -4,10 +4,14 @@
 \alias{show_pals}
 \title{Show colors}
 \usage{
-show_pals(index, palettes = ftpals::first_takes)
+show_pals(index = NA, type = "F", take = NA, palettes = ftpals::first_takes)
 }
 \arguments{
 \item{index}{Which palette to get?}
+
+\item{type}{"F" for first take, "H" for home take}
+
+\item{take}{Take #}
 
 \item{palettes}{Palette table}
 }
