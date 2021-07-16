@@ -15,7 +15,7 @@ Current counts:
 
 | type           |   n |
 |:---------------|----:|
-| THE FIRST TAKE | 129 |
+| THE FIRST TAKE | 135 |
 | THE HOME TAKE  |  16 |
 
 ## Goals
